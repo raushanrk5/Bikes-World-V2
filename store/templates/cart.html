@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load cart %}
+
+<div class="container">
+    <div class="border rounded p-4 m-4">
+        <p class="display-4 ml-4 pl-4"><b>Your cart</b></p>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">Sno.</th>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Product</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><img style="height: 80px;" class = "rounded-circle" src="{{product.image.url}}" alt=""></td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price|currency}}</td>
+                    <td><div class="row no-gutters ">
+                        <form action="" method="POST" class="col-2">
+                          {% csrf_token %}
+                          <input hidden name = "product" type="text" value="{{product.id}}">
+                          <input hidden name = "remove" type="text" value="True">
+                          <input style="width:33px;" type="submit" value="-" class="btn btn-light rounded-circle border-info mr-2">
+                        </form>
+                        <div style="width: 2px; height: 33px; border-radius: 2px; border: 1px solid #17a2b8!important; margin: 0 5px;" class="ml-4 text-center text-align item-center col border-secondary rounded bg-light my-auto py-auto"><div class="my-aut0">{{product|cart_quantity:request.session.cart}}</div></div>
+                        <form action="" method="POST" class="col-2">  
+                          {% csrf_token %}
+                          <input hidden name = "product" type="text" value="{{product.id}}">
+                          <input style="width:33px;" type="submit" value="+" class="btn btn-light rounded-circle border-info">
+                        </form>
+                      </div></td>
+                    <td>{{product|price_total:request.session.cart|currency}}</td>
+                    <td>
+                        <form action="" method="POST" class="col-2">
+                          {% csrf_token %}
+                          <input hidden name = "product" type="text" value="{{product.id}}">
+                          <input hidden name = "remove_from_cart" type="text" value="True">
+                          <input type="submit" value="Remove from cart" class="btn btn-outline-warning rounded">
+                        </form>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3"></th>
+                    <th><u>Total</u></th>
+                    <th>{{products|cart_total_price:request.session.cart|currency}}</th>
+                </tr>
+            </tfoot>
+        </table>
+        <hr>
+        <div class="m-3 p-3">
+            <a href="" data-toggle="modal" data-target="#checkoutModal" class="btn btn-outline-info border rounded col-lg-3 float-right ">Check out</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Check out</h5>
+          <hr>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="m-2 p-3">
+              <form action="/checkout/" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input type="text" name="address" id="" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="">Contact no.</label>
+                    <input type="text" name="phone" id="" class="form-control" placeholder="">
+                </div>
+                <button type="submit" class="btn btn-info col-lg-6 m-3 float-right">Check out</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

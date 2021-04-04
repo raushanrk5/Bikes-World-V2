@@ -1,0 +1,445 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load cart %}
+
+{% block content %}
+    <div class="slider-area">
+        <div class="slider-active owl-carousel">
+                        <div class="single-slider slider-1" style="background-image: url(assets/img/slider/slider-bg.jpg)">
+                            <div class="container">
+                                <div class="slider-content slider-animated-1">
+                                    <div class="slider-img text-center">
+                                        <img class="animated" src="{% static 'img/slider/s07.png' %}" alt="slider images">
+                                    </div>
+                                    <div class="slider-text-img">
+                                        <h6 class="animated">BOOK YOUR BIKE INSTANTLY AND ENJOY DISCOUNT</h6>
+                                        <img class="animated" src="{% static 'img/icon-img/bike.png' %}" alt="slider images">
+                                    </div>
+                                    <h2 class="animated">MOTORCYCLE</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-slider slider-1" style="background-image: url(assets/img/slider/slider-bg.jpg)">
+                            <div class="container">
+                                <div class="slider-content slider-animated-1">
+                                    <div class="slider-img text-center">
+                                        <img class="animated" src="{% static 'img/slider/s02.png' %}" alt="slider images">
+                                    </div>
+                                    <div class="slider-text-img">
+                                        <h6 class="animated">BOOK YOUR BIKE INSTANTLY AND ENJOY DISCOUNT</h6>
+                                        <img class="animated" src="{% static 'img/icon-img/bike.png' %}" alt="slider images">
+                                    </div>
+                                    <h2 class="animated">MOTORCYCLE</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-slider slider-1" style="background-image: url(assets/img/slider/slider-bg.jpg)">
+                            <div class="container">
+                                <div class="slider-content slider-animated-1">
+                                    <div class="slider-img text-center">
+                                        <img class="animated" src="{% static 'img/slider/s06.png' %}" alt="slider images">
+                                    </div>
+                                    <div class="slider-text-img">
+                                        <h6 class="animated">BOOK YOUR BIKE INSTANTLY AND ENJOY DISCOUNT</h6>
+                                        <img class="animated" src="{% static 'img/icon-img/bike.png' %}" alt="slider images">
+                                    </div>
+                                    <h2 class="animated">MOTORCYCLE</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="slider-social">
+                <ul>
+                    <li class="facebook"><a href="https://www.facebook.com/profile.php?id=100015237614107"><i class="icofont icofont-social-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
+                    <li class="linkedin"><a href="https://www.linkedin.com/in/raushan-kumar-116b48195/"><i class="icofont icofont-social-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    <div class="overview-area pt-135">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="overview-content">
+                                    <h1><span>BIKES WORLD</span></h1>
+                                    <h2>LARGEST <span>MOTORCYCLE STORE</span></h2>
+                                    <p><span>BIKES WORLD</span> the largest bike store in the wold can serve you latest quality of motorcycle. You get different types of bikes here such as Sports, Street, Racing bikes etc. It is mainly built for b2b purpose. Temporibus autem quibusdam </p>
+                                    <div class="question-area">
+                                        <h4>HAVE ANY QUESTION? </h4>
+                                        <div class="question-contact">
+                                            <div class="question-icon">
+                                                <i class="icofont icofont-phone"></i>
+                                            </div>
+                                            <div class="question-content-number">
+                                                <h6>6203035528</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="overview-img">
+                                    <img class="tilter" src="{% static 'img/slider/tilted.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <div class="banner-area pt-135 pb-120">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4">
+                                <div class="banner-wrapper mb-30">
+                                    <a href="?category=1"><img src="{% static 'img/banner/b3.jpg' %}" alt="image"></a>
+                                    <div class="banner-content">
+                                        <h2>GET KAWASAKI BIKES</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4">
+                                <div class="banner-wrapper mb-30">
+                                    <a href="#"><img src="{% static 'img/banner/b2.jpg' %}" alt="image"></a>
+                                    <div class="banner-content">
+                                        <h2>GET HARLEY BIKES</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4">
+                                <div class="banner-wrapper mb-30">
+                                    <a href="#"><img src="{% static 'img/banner/b4.png' %}" alt="image"></a>
+                                    <div class="banner-content">
+                                        <h2>GET DUCATI BIKES</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <div class="product-area pb-90">
+                    <div class="container">
+                        <div class="section-title text-center mb-50">
+                            <h2>CHOOSE YOUR BIKE</h2>
+                            <p><span>OSWAN</span> the most latgest bike store in the wold can serve you latest            qulity of motorcycle also you can sell here your motorcycle</p>
+                        </div>
+                        <div class="product-tab-list text-center mb-80 nav product-menu-mrg" role="tablist">
+                            <a class="active" href="#home1" data-toggle="tab" >
+                                <h4>SPORTS BIKES </h4>
+                            </a>
+                            <a href="#home2" data-toggle="tab">
+                                <h4> ROAD BIKES </h4>
+                            </a>
+                        </div>
+                        <div class="tab-content jump">
+                            <div class="tab-pane active" id="home1">
+                                <div class="product-slider-active owl-carousel">
+                                    {% for p1, p2 in s_zipped %}
+                                    <div class="product-wrapper-bundle">
+                                        <div class="product-wrapper mb-30" style="height:350px">
+                                            <div class="product-img">
+                                                <a href="/bike/{{ p1.name }}">
+                                                    <img style="height:200px" src="{{ p1.image.url }}" alt="">
+                                                </a>
+
+                                                <div class="product-action mt-2">
+                                                    <form id="cart_form{{ p1.id }}" action="{% url 'home' %}#{{product.id}}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input hidden name = "product" type="text" value="{{ p1.id }}">
+                                                        <a onclick="cartsubmit{{ p1.id }}()" id="cart_btn{{ p1.id }}" class="action-plus-2" title="Add To Cart">
+                                                            <i class=" ti-shopping-cart"></i>
+                                                        </a>
+                                                    </form>
+    <!--                                                <a class="action-cart-2" title="Wishlist" href="#">-->
+    <!--                                                    <i class=" ti-heart"></i>-->
+    <!--                                                </a>-->
+                                                    <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal{{ p1.id }}" href="#">
+                                                        <i class=" ti-zoom-in"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="mt-5 pt-3 text-center px-3">
+                                                    <div class="product-title-spreed float-left">
+                                                        <h4><a href="/bike/{{ p1.name }}">{{ p1.name|truncatewords:2 }}</a></h4>
+                                                        <span>6600 RPM</span>
+                                                    </div>
+                                                    <div class="product-price float-right">
+                                                        <span>{{ p1.price|convert }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <script>
+                                                    function cartsubmit{{ p1.id }}()
+                                                    {
+                                                        document.getElementById("cart_form{{ p1.id }}").submit();
+                                                    }
+                                                </script>
+
+                                            </div>
+                                        </div>
+                                        <div class="product-wrapper mb-30" style="height:350px">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img style="height:200px" src="{{ p2.image.url }}" alt="">
+                                                </a>
+
+                                                <div class="product-action mt-2">
+                                                    <form id="cart_form{{ p2.id }}" style="height:40px" action="" method="POST">
+                                                        {% csrf_token %}
+                                                        <input hidden name = "product" type="text" value="{{ p2.id }}">
+                                                        <a onclick="cartsubmit{{ p2.id }}()" id="cart_btn{{ p2.id }}" class="action-plus-2" title="Add To Cart">
+                                                            <i class=" ti-shopping-cart"></i>
+                                                        </a>
+                                                    </form>
+    <!--                                                <a class="action-cart-2" title="Wishlist" href="#">-->
+    <!--                                                    <i class=" ti-heart"></i>-->
+    <!--                                                </a>-->
+                                                    <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal{{ p2.id }}" href="#">
+                                                        <i class=" ti-zoom-in"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="mt-5 pt-3 text-center px-3">
+                                                    <div class="product-title-spreed float-left">
+                                                        <h4><a href="/bike/{{ p2.name }}">{{ p2.name|truncatewords:2 }}</a></h4>
+                                                        <span>6600 RPM</span>
+                                                    </div>
+                                                    <div class="product-price float-right">
+                                                        <span>{{ p2.price|convert }}</span>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function cartsubmit{{ p2.id }}()
+                                                    {
+                                                        document.getElementById("cart_form{{ p2.id }}").submit();
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="home2">
+                                <div class="product-slider-active owl-carousel">
+                                    {% for p1, p2 in r_zipped %}
+                                    <div class="product-wrapper-bundle">
+                                        <div class="product-wrapper mb-30" style="height:350px">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img style="height:200px" src="{{ p1.image.url }}" alt="">
+                                                </a>
+
+                                                <div class="product-action mt-2">
+                                                    <form id="cart_form{{ p1.id }}" style="height:40px" action="" method="POST">
+                                                        {% csrf_token %}
+                                                        <input hidden name = "product" type="text" value="{{ p1.id }}">
+                                                        <a onclick="cartsubmit{{ p1.id }}()" id="cart_btn{{ p1.id }}" class="action-plus-2" title="Add To Cart">
+                                                            <i class=" ti-shopping-cart"></i>
+                                                        </a>
+                                                    </form>
+    <!--                                                <a class="action-cart-2" title="Wishlist" href="#">-->
+    <!--                                                    <i class=" ti-heart"></i>-->
+    <!--                                                </a>-->
+                                                    <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal{{ p1.id }}" href="#">
+                                                        <i class=" ti-zoom-in"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="mt-5 pt-3 text-center px-3">
+                                                    <div class="product-title-spreed float-left">
+                                                        <h4><a href="/bike/{{ p1.name }}">{{ p1.name }}</a></h4>
+                                                        <span>6600 RPM</span>
+                                                    </div>
+                                                    <div class="product-price float-right">
+                                                        <span>{{ p1.price|convert }}</span>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function cartsubmit{{ p1.id }}()
+                                                    {
+                                                        document.getElementById("cart_form{{ p1.id }}").submit();
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="product-wrapper mb-30" id = "{{ p2.id }}" style="height:350px">
+                                            <div class="product-img">
+                                                <a href="product-details.html">
+                                                    <img  style="height:200px" src="{{ p2.image.url }}" alt="">
+                                                </a>
+
+                                                <div class="product-action mt-2">
+                                                    <form id="cart_form{{ p2.id }}" style="height:40px" action="{% url 'home' %}#{{p2.id}}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input hidden name = "product" type="text" value="{{ p2.id }}">
+                                                        <a onclick="cartsubmit{{ p2.id }}()" id="cart_btn{{ p2.id }}" class="action-plus-2" title="Add To Cart">
+                                                            <i class=" ti-shopping-cart"></i>
+                                                        </a>
+                                                    </form>
+
+    <!--                                                <a class="action-cart-2" title="Wishlist" href="#">-->
+    <!--                                                    <i class=" ti-heart"></i>-->
+    <!--                                                </a>-->
+                                                    <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal{{ p2.id }}" href="#">
+                                                        <i class=" ti-zoom-in"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="mt-5 pt-3 text-center px-3">
+                                                    <div class="product-title-spreed float-left">
+                                                        <h4><a href="/bike/{{ p2.name }}">{{ p2.name }}</a></h4>
+                                                        <span>6600 RPM</span>
+                                                    </div>
+                                                    <div class="product-price float-right">
+                                                        <span>{{ p2.price|convert }}</span>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function cartsubmit{{ p2.id }}()
+                                                    {
+                                                        document.getElementById("cart_form{{ p2.id }}").submit();
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <div class="latest-product-area pt-95 pb-145 bg-img" style="background-color:white;">
+                    <div class="container-fluid">
+                        <div class="latest-product-slider owl-carousel">
+                            <div class="single-latest-product slider-animated-2 px-0 mx-0">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-12 col-12 ml-0 pl-0">
+                                        <div class="latest-product-img">
+                                            <img class="animated" src="{% static 'img/slider/s02.png' %}" alt="image">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-12 col-12">
+                                        <div class="latest-product-content">
+                                            <h2 class="animated text-dark">LATEST OFFER <br>FOR POPULAR BIKES</h2>
+                                            <p class="animated text-dark"><span>OSWAN</span> the most latgest bike store in the wold can serve you latest            qulity of motorcycle also you can sell here your motorcycle it quo minus iduod maxie placeat facere possimus, omnis voluptas assumenda est, omnis dolor llendus. Temporibus autem quibusdam </p>
+                                            <div class="latest-price">
+                                                <h3 class="animated text-dark">NOW AT <span>$1250</span></h3>
+                                                <span class="animated text-dark">35% DISCOUNT</span>
+                                            </div>
+                                            <div class="latext-btn">
+                                                <a class="animated" href="{% url 'shop'%}">SELECT A BIKE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-latest-product slider-animated-2 px-0 mx-0">
+                                <div class="row">
+                                    <div class="col-lg-7 col-col-12 col-12">
+                                        <div class="latest-product-img">
+                                            <img class="animated" src="{% static 'img/slider/s05.png' %}" alt="image">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-col-12 col-12">
+                                        <div class="latest-product-content">
+                                            <h2 class="animated">LATEST OFFER <br>FOR POPULAR BIKES</h2>
+                                            <p class="animated"><span>OSWAN</span> the most latgest bike store in the wold can serve you latest            qulity of motorcycle also you can sell here your motorcycle it quo minus iduod maxie placeat facere possimus, omnis voluptas assumenda est, omnis dolor llendus. Temporibus autem quibusdam </p>
+                                            <div class="latest-price">
+                                                <h3 class="animated">NOW AT <span>$1250</span></h3>
+                                                <span class="animated">35% DISCOUNT</span>
+                                            </div>
+                                            <div class="latext-btn">
+                                                <a class="animated" href="#">SELECT A BIKE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+     <!-- modal -->
+    {% for p in products %}
+        <div class="modal fade" id="exampleModal{{ p.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="icofont icofont-close" aria-hidden="true"></span>
+                    </button>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="qwick-view-left">
+                                    <div class="quick-view-learg-img">
+                                        <div class="quick-view-tab-content tab-content">
+                                            <div class="tab-pane active show fade" id="modal0" role="tabpanel">
+                                                <img style="height:380px; width:320px; object-fit:contain;" src="{{ p.image.url }}" alt="">
+                                            </div>
+                                            {% for img in p|gallery %}
+                                            <div class="tab-pane show fade" id="modal{{ forloop.counter }}" role="tabpanel">
+                                                <img style="height:380px; width:320px; object-fit:contain;" src="{{ img.img_url }}" alt="">
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="quick-view-list nav" role="tablist">
+                                        <a class="active" href="#modal0" data-toggle="tab" role="tab">
+                                            <img style="height:110px; width:100px; object-fit:contain;" src="{{ p.image.url }}" alt="">
+                                        </a>
+
+                                        {% for img in p|gallery %}
+                                        <a href="#modal{{ forloop.counter }}" data-toggle="tab" role="tab">
+                                            <img style="height:110px; width:100px; object-fit:contain;" src="{{ img.img_url }}" alt="">
+                                        </a>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                                <div class="qwick-view-right">
+                                    <div class="qwick-view-content">
+                                        <h3>{{ p.name }}</h3>
+                                        <div class="price">
+                                            <span class="new">{{ p.price|convert }}</span>
+                                        </div>
+                                        <div class="rating-number">
+                                            <div class="quick-view-rating">
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
+                                            </div>
+                                        </div>
+                                        <p>{{ p.desc }}</p>
+                                        <div class="quick-view-select">
+                                            <div class="select-option-part">
+                                                <label>Size*</label>
+                                                <select class="select">
+                                                    <option value="">- Please Select -</option>
+                                                    <option value="">900</option>
+                                                    <option value="">700</option>
+                                                </select>
+                                            </div>
+                                            <div class="select-option-part">
+                                                <label>Color*</label>
+                                                <select class="select">
+                                                    <option value="">- Please Select -</option>
+                                                    <option value="">orange</option>
+                                                    <option value="">pink</option>
+                                                    <option value="">yellow</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="quickview-plus-minus">
+                                            <div class="cart-plus-minus">
+                                                <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+                                            </div>
+                                            <div class="quickview-btn-cart">
+                                                <a class="btn-style" href="#">add to cart</a>
+                                            </div>
+                                            <div class="quickview-btn-wishlist">
+                                                <a class="btn-hover" href="#"><i class="icofont icofont-heart-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    {% endfor %}
+{% endblock content %}

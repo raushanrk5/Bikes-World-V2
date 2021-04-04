@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="p-4 m-4">
+      <div class="col-lg-4 mx-auto border rounded bg-light">
+          <h2 class="text-center mt-2">Login</h2>
+            <form class="form-signin mt-4 mx-2" action="/login/" method="POST">
+
+                {% if error %}
+                <p class="alert alert-danger text-center" role="alert">{{ error }}</p>
+                {% endif %}
+
+                {% csrf_token %}
+              
+              <div class="form-group">
+                <label for="inputEmail">Email</label>  
+                <input type="email" id="inputEmail" class="form-control form-control-sm" placeholder="Email address" name="email" value = "{{values.email}}" required>
+              </div>
+
+              <div class="form-group">
+                <label for="inputPassword">Password</label>  
+                <input type="password" id="inputPassword" class="form-control form-control-sm" placeholder="Password" name = "password">
+              </div>
+              
+              <div class="form-group m-0 mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+            </div>
+            <div class="my-3 text-center">
+                Don't have an account? <a href=".html">Register</a>
+            </div>
+            </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

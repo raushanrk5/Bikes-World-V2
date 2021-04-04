@@ -1,0 +1,173 @@
+{% load static %}
+{% load cart %}
+<header>
+                <div class="header-area transparent-bar ptb-30" >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-3">
+                                <div class="logo-small-device">
+                                    <a href="{% url 'home'%}"><h2 class="text-secondary">Bikes World</h2></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-7">
+                                <div class="header-contact-menu-wrapper pl-45">
+                                    <div class="header-contact">
+                                        <p class="text-secondary">WANT TO TALK WITH US: +91 6203035528</p>
+                                    </div>
+                                    <div class="menu-wrapper text-center">
+                                        <button class="menu-toggle">
+                                            <img class="s-open" alt="" src="{% static 'img/icon-img/menu.png' %}">
+                                            <img class="s-close" alt="" src="{% static 'img/icon-img/menu-close.png' %}">
+                                        </button>
+                                        <div class="main-menu">
+                                            <nav>
+                                                <ul>
+                                                    <li><a href="{% url 'home'%}">home</a></li>
+                                                    <li class="active"><a href="about-us.html">about us </a></li>
+                                                    <li><a href="{% url 'shop'%}">shop</a></li>
+                                                    {% if request.session.customer %}
+                                                    <li><a href="/orders">Orders<span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="/logout/">Logout<span class="sr-only">(current)</span></a></li>
+                                                    {% else %}
+                                                    <li><a href="/signup/">Signup <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="/login/">Login <span class="sr-only">(current)</span></a></li>
+                                                        {% endif %}
+                                                    <li><a href="/cart">Cart
+                                                        <span class="sr-only">(current)</span></a>
+                                                    </li>
+
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-cart cart-small-device">
+                                    <button class="icon-cart">
+                                        <i class="ti-shopping-cart"></i>
+                                        <span class="count-style">02</span>
+                                        <span class="count-price-add">$295.95</span>
+                                    </button>
+                                    <div class="shopping-cart-content">
+                                        <ul>
+                                            <li class="single-shopping-cart">
+                                                <div class="shopping-cart-img">
+                                                    <a href="#"><img alt="" src="assets/img/cart/cart-1.jpg"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h3><a href="#">Gloriori GSX 250 R </a></h3>
+                                                    <span>Price: $275</span>
+                                                    <span>Qty: 01</span>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="icofont icofont-ui-delete"></i></a>
+                                                </div>
+                                            </li>
+                                            <li class="single-shopping-cart">
+                                                <div class="shopping-cart-img">
+                                                    <a href="#"><img alt="" src="assets/img/cart/cart-2.jpg"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h3><a href="#">Demonissi Gori</a></h3>
+                                                    <span>Price: $275</span>
+                                                    <span class="qty">Qty: 01</span>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="icofont icofont-ui-delete"></i></a>
+                                                </div>
+                                            </li>
+                                            <li class="single-shopping-cart">
+                                                <div class="shopping-cart-img">
+                                                    <a href="#"><img alt="" src="assets/img/cart/cart-3.jpg"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h3><a href="#">Demonissi Gori</a></h3>
+                                                    <span>Price: $275</span>
+                                                    <span class="qty">Qty: 01</span>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="icofont icofont-ui-delete"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="shopping-cart-total">
+                                            <h4>total: <span>$550.00</span></h4>
+                                        </div>
+                                        <div class="shopping-cart-btn">
+                                            <a class="btn-style cr-btn" href="#">checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mobile-menu-area col-12">
+                                <div class="mobile-menu">
+                                    <nav id="mobile-menu-active" style="display: block;">
+                                        <ul class="menu-overflow">
+                                            <li><a href="index.html">HOME</a></li>
+                                            <li><a href="#">pages</a>
+                                                <ul>
+                                                    <li><a href="about-us.html">about us</a></li>
+                                                    <li><a href="cart.html">cart page</a></li>
+                                                    <li><a href="checkout.html">checkout</a></li>
+                                                    <li><a href="wishlist.html">wishlist</a></li>
+                                                    <li><a href="login-register.html">login</a></li>
+                                                    <li><a href="contact.html">contact</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">shop</a>
+                                                <ul>
+                                                    <li><a href="shop.html">shop</a></li>
+                                                    <li><a href="product-details.html">product details</a></li>
+                                                    <li><a href="checkout.html">checkout</a></li>
+                                                    <li><a href="wishlist.html">wishlist</a></li>
+                                                    <li><a href="cart.html">cart</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">BLOG</a>
+                                                <ul>
+                                                    <li><a href="blog.html">blog page</a></li>
+                                                    <li><a href="blog-details.html">blog details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html"> Contact us</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-cart-wrapper">
+                        <div class="header-cart">
+                            <button class="icon-cart" style="padding: 30px 55px 25px;">
+                                <i class="ti-shopping-cart"></i>
+                                <span class="count-style">{{request.session.cart.keys|length}}</span>
+                                <span class="count-price-add">{{cart_products|cart_total_price:request.session.cart|convert}}</span>
+                            </button>
+                            <div class="shopping-cart-content">
+                                <ul>
+                                    {% for p in cart_products%}
+                                    <li class="single-shopping-cart">
+                                        <div class="shopping-cart-img">
+                                            <a href="/bike/{{ p.name }}"><img style="height:80px;width:80px;" alt="" src="{{ p.image.url }}"></a>
+                                        </div>
+                                        <div class="shopping-cart-title">
+                                            <h3><a href="#">{{ p.name }}</a></h3>
+                                            <span>Price: {{ p.price|convert}}</span>
+                                            <span>Qty: {{p|cart_quantity:request.session.cart }}</span>
+                                        </div>
+                                        <div class="shopping-cart-delete">
+                                            <a href=""><i class="icofont icofont-ui-delete"></i></a>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="shopping-cart-total">
+                                    <h4>total: <span>{{cart_products|cart_total_price:request.session.cart|convert}}</span></h4>
+                                </div>
+                                <div class="shopping-cart-btn">
+                                    <a class="btn-style cr-btn" href="{% url 'checkout'%}">checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>

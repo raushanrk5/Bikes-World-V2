@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="p-4 m-4">
+      <div class="col-lg-5 col-sm-12 mx-auto border rounded bg-light">
+          <h2 class="text-center mt-2">Register</h2>
+            <form class="form-signin mt-4 mx-2" action="/signup/" method="POST">
+
+                {% if error %}
+                <p class="alert alert-danger text-center" role="alert">{{ error }}</p>
+                {% endif %}
+
+                {% csrf_token %}
+              <div class="form-group">
+                <label for="inputFname">First Name</label>  
+                <input type="text" id="inputFname" class="form-control form-control-sm" placeholder="First name" name= 'Fname' value = "{{values.fname}}" autofocus>
+              </div>
+
+              <div class="form-group">
+                <label for="inputLname"> Last Name</label>  
+                <input type="text" id="inputLname" class="form-control form-control-sm" placeholder="Last name" name= 'Lname' value = "{{values.lname}}">
+              </div>
+
+              <div class="form-group">
+                <label for="inputEmail">Email</label>  
+                <input type="email" id="inputEmail" class="form-control form-control-sm" placeholder="Email address" name="email" value = "{{values.email}}" required>
+              </div>
+
+              <div class="form-group">
+                <label for="inputPassword">Password</label>  
+                <input type="password" id="inputPassword" class="form-control form-control-sm" placeholder="Password" name = "password" value = "{{values.password}}">
+              </div>
+              
+              <div class="form-group">
+                <label for="inputConfirmPassword">Confirm password</label>  
+                <input type="password" id="inputConfirmPassword" class="form-control form-control-sm" placeholder="Password" name = "rePassword" value = "">
+              </div>
+
+              <div class="form-group m-0 mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-block">
+                    Create Account
+                </button>
+            </div>
+            <div class="my-3 text-center">
+                Already have an account? <a href="index.html">Login</a>
+            </div>
+            </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

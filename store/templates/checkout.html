@@ -1,0 +1,210 @@
+{% extends 'layout.html' %}
+{% load cart %}
+{% load static %}
+
+{% block content %}
+    <div class="breadcrumb-area pt-255 pb-170" style="background-image: url({% static 'img/banner/bg5.jpg' %})">
+                <div class="container-fluid">
+                    <div class="breadcrumb-content text-center">
+                        <h2>checkout page</h2>
+                        <ul>
+                            <li>
+                                <a href="#">home</a>
+                            </li>
+                            <li>checkout page</li>
+                        </ul>
+                    </div>
+                </div>
+    </div>
+    <!-- checkout-area start -->
+    <div class="checkout-area pt-130 pb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="coupon-accordion">
+                                <!-- ACCORDION START -->
+                                <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
+                                <div id="checkout-login" class="coupon-content">
+                                    <div class="coupon-info">
+                                        <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>
+                                        <form action="#">
+                                            <p class="form-row-first">
+                                                <label>Username or email <span class="required">*</span></label>
+                                                <input type="text" />
+                                            </p>
+                                            <p class="form-row-last">
+                                                <label>Password  <span class="required">*</span></label>
+                                                <input type="text" />
+                                            </p>
+                                            <p class="form-row">					
+                                                <input type="submit" value="Login" />
+                                                <label>
+                                                    <input type="checkbox" />
+                                                     Remember me 
+                                                </label>
+                                            </p>
+                                            <p class="lost-password">
+                                                <a href="#">Lost your password?</a>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- ACCORDION END -->	
+                                <!-- ACCORDION START -->
+                                <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
+                                <div id="checkout_coupon" class="coupon-checkout-content">
+                                    <div class="coupon-info">
+                                        <form action="#">
+                                            <p class="checkout-coupon">
+                                                <input type="text" placeholder="Coupon code" />
+                                                <input type="submit" value="Apply Coupon" />
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- ACCORDION END -->						
+                            </div>
+                        </div>
+                    </div>
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12 col-12">
+                                <div class="checkbox-form">
+                                    <h3>Billing Details</h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label>Country <span class="required">*</span></label>
+                                                <input type="text" placeholder="" name="country"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkout-form-list">
+                                                <label>First Name <span class="required">*</span></label>
+                                                <input type="text" placeholder="" name="fname"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkout-form-list">
+                                                <label>Last Name <span class="required">*</span></label>
+                                                <input type="text" placeholder="" name="lname"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label>Company Name</label>
+                                                <input type="text" placeholder="" name="company_name"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label>Address <span class="required">*</span></label>
+                                                <input type="text" placeholder="Street address" name="address"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label>Town / City <span class="required">*</span></label>
+                                                <input type="text" name="city"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkout-form-list">
+                                                <label>State<span class="required">*</span></label>
+                                                <input type="text" placeholder="" name="state"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkout-form-list">
+                                                <label>Postcode / Zip <span class="required">*</span></label>
+                                                <input type="text" name="zip_code"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkout-form-list">
+                                                <label>Email Address <span class="required">*</span></label>
+                                                <input type="email" name="email"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkout-form-list">
+                                                <label>Phone  <span class="required">*</span></label>
+                                                <input type="text" name="phone"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-12">
+                            <div class="your-order">
+                                <h3>Your order</h3>
+                                <div class="your-order-table table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-total">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for product in cart_products %}
+                                            <tr class="cart_item">
+                                                <td class="product-name">
+                                                    {{ product.name}} <strong class="product-quantity"> × {{product|cart_quantity:request.session.cart}}</strong>
+                                                </td>
+                                                <td class="product-total">
+                                                    <span class="amount">{{product|price_total:request.session.cart|convert}}</span>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="cart-subtotal">
+                                                <th>Cart Subtotal</th>
+                                                <td><span class="amount">{{cart_products|cart_total_price:request.session.cart|convert}}</span></td>
+                                            </tr>
+                                            <tr class="order-total">
+                                                <th>Order Total</th>
+                                                <td><strong><span class="amount">{{cart_products|cart_total_price:request.session.cart|convert}}</span></strong>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="payment-method mt-40">
+                                    <div class="payment-accordion">
+                                        <div class="panel-group" id="faq">
+
+                                            <h4 class="mb-3">Payment</h4>
+
+                                            <div class="d-block my-3 panel panel-default">
+                                              <div class="form-check">
+                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio1" value="Razorpay">
+                                              <label class="form-check-label" for="inlineRadio1">Razorpay</label>
+                                            </div>
+                                            <div class="form-check">
+                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio2" value="Paypal">
+                                              <label class="form-check-label" for="inlineRadio2">Paypal</label>
+                                            </div>
+                                            <div class="form-check">
+                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio3" value="Credit/debit">
+                                              <label class="form-check-label" for="inlineRadio3">Debit/Credit Card</label>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="order-button-payment">
+                                            <input type="submit" value="Place order" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    <!-- checkout-area end -->
+{% endblock %}

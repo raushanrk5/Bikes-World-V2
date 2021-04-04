@@ -1,0 +1,98 @@
+{% load static %}
+{% load cart %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bikes World</title>
+        <meta name="description" content="Live Preview Of Oswan eCommerce HTML5 Template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+		<!-- all css here -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/chosen.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/easyzoom.css' %}">
+        <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bundle.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+        <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+        {% block extrahead  %}
+
+        {% endblock extrahead  %}
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- header start -->
+            {% include 'header.html'%}
+
+            {% block content %}
+
+            {% endblock content %}
+            <div class="newsletter-area mt-5">
+                <div class="container">
+                    <div class="newsletter-wrapper-all theme-bg-2">
+                        <div class="row">
+                            <div class="col-lg-5 col-12 col-md-12">
+                                <div class="newsletter-img bg-img" style="background-image: url({% static 'img/banner/newsletter-bg.png' %}">
+                                    <img alt="image" src="{% static 'img/team/newsletter-img.png' %}">
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-12 col-md-12 mt-5">
+                                <div class="newsletter-wrapper text-center">
+                                    <div class="newsletter-title">
+                                        <h3>Subscribe our newsletter</h3>
+                                    </div>
+                                    <div id="mc_embed_signup" class="subscribe-form">
+                                        <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                            <div id="mc_embed_signup_scroll" class="mc-form">
+                                                <input type="email" value="" name="EMAIL" class="email" placeholder="Enter your email here..." required>
+                                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                                <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'footer.html' %}
+
+        </div>
+
+
+		<!-- all js here -->
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
+        <script src="{% static 'js/popper.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'js/waypoints.min.js' %}"></script>
+        <script src="{% static 'js/ajax-mail.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+
+
+        {% include "ex_script.html" %}
+        {% block extrascript %}
+
+        {% endblock extrascript %}
+    </body>
+</html>

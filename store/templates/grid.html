@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% load cart %}
+{% load static %}
+
+{% block content %}
+    <div class="breadcrumb-area pt-255 pb-170 mb-5" style="background-image: url({% static 'img/banner/bg5.jpg' %})">
+                <div class="container-fluid">
+                    <div class="breadcrumb-content text-center">
+                        <h2>product details </h2>
+                        <ul>
+                            <li>
+                                <a href="#">home</a>
+                            </li>
+                            <li>product details </li>
+                        </ul>
+                    </div>
+                </div>
+            </div
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 mx-auto">
+        <div class="list-group">
+          <a href="/" class="list-group-item list-group-item-action">All Products</a>
+            
+            {% for category in categorys %}
+             <a href="?category={{ category.id }}" class="list-group-item list-group-item-action">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+      </div>
+
+      <div id = "products" class="col-lg-9 mx-auto">
+        <div class="row mx-auto">
+          {% for product in products %}
+    
+            <div class="card mx-auto mb-3" id = {{product.id}} style="width: 18rem;">
+              <img style = "height: 180px;" src="{{ product.image.url}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <a href="/bike/{{ product.name }}" class="text-decoration-none"><h5 class="card-title">{{ product.name }}</h5></a>
+
+                <p class="card-text"><b>{{ product.price|convert }}</b></p>
+                <!-- {{product | is_in_cart:request.session.cart}} -->
+                
+              </div>
+              <div class="card-footer p-0">
+
+                {% if product|is_in_cart:request.session.cart %}
+                  <div style="height:40px" class="row no-gutters">
+                    <form action="{% url 'shop' %}#{{product.id}}" method="POST" class="col-2">
+                      {% csrf_token %}
+                      <input hidden name = "product" type="text" value="{{product.id}}">
+                      <input hidden name = "remove" type="text" value="True">
+                      <input style="height:100%" type="submit" value="-" class="btn btn-block btn-warning">
+                    </form>
+                      <div style="height:100%; line-height:40px; font-size:18px; font-weight:bold" class="text-center col">{{product|cart_quantity:request.session.cart}} in cart</div>
+                    <form action="{% url 'shop' %}#{{product.id}}" method="POST" class="col-2">
+                      {% csrf_token %}
+                      <input hidden name = "product" type="text" value="{{product.id}}">
+                      <input style="height:100%" type="submit" value="+" class="btn btn-block btn-warning">
+                    </form>
+                  </div>
+                {% else %}
+                  <form  style="height:40px" action="{% url 'shop' %}#{{product.id}}" method="POST" class="btn-block">
+                    {% csrf_token %}
+                    <input hidden name = "product" type="text" value="{{product.id}}">
+                    <input style="height:100%; font-size:18px;" type="submit" value="Add to Cart" class="btn form-control btn-warning float-right border btn-sm">
+                  </form>
+
+                {% endif %}
+              </div>
+
+            </div>
+    
+          {% endfor%}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+<!--/shop/#{{product.id}}-->

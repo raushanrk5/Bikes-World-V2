@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load cart %}
+
+{% block content %}
+    <div class="breadcrumb-area pt-255 pb-170" style="background-image: url({% static 'img/banner/bg5.jpg' %})">
+                    <div class="container-fluid">
+                        <div class="breadcrumb-content text-center">
+                            <h2>product details </h2>
+                            <ul>
+                                <li>
+                                    <a href="#">home</a>
+                                </li>
+                                <li>product details </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    <div class="product-details-area fluid-padding-2 ptb-130">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="product-details-img-content">
+                                    <div class="product-details-tab mr-40">
+                                        <div class="product-details-large tab-content">
+                                            <div class="tab-pane active" id="pro-details0">
+                                                <div class="easyzoom easyzoom--overlay">
+                                                    <a href="{{ product.image.url }}">
+                                                        <img src="{{ product.image.url }}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            {% for image in images %}
+                                            {% if image.img_url %}
+                                            <div class="tab-pane" id="pro-details{{ forloop.counter }}">
+                                                <div class="easyzoom easyzoom--overlay">
+                                                    <a class="bg-light" href="{{ image.img_url }}">
+                                                        <img src="{{ image.img_url }}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% endfor %}
+
+                                        </div>
+                                        <div class="product-details-small nav mt-12 product-dec-slider owl-carousel">
+                                            <a class="active" href="#pro-details0">
+                                                <img src="{{ product.image.url }}" alt="">
+                                            </a>
+                                            {% for image in images %}
+                                            {% if image.img_url %}
+                                            <a href="#pro-details{{ forloop.counter }}">
+                                                <img src="{{ image.img_url }}" alt="">
+                                            </a>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="product-details-content">
+                                    <h2>{{product.name}}</h2>
+                                    <div class="quick-view-rating">
+                                        <i class="fa fa-star reting-color"></i>
+                                        <i class="fa fa-star reting-color"></i>
+                                        <i class="fa fa-star reting-color"></i>
+                                        <i class="fa fa-star reting-color"></i>
+                                        <i class="fa fa-star reting-color"></i>
+                                        <span> ( 01 Customer Review )</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span>{{product.price|convert}}</span>
+                                    </div>
+                                    <div class="product-overview">
+                                        <h5 class="pd-sub-title">Product Overview</h5>
+                                        <p>{{ product.desc }}</p>
+                                    </div>
+                                    <div class="product-color">
+                                        <h5 class="pd-sub-title">Product color</h5>
+                                        <ul>
+                                            <li class="red">b</li>
+                                            <li class="pink">p</li>
+                                            <li class="blue">b</li>
+                                            <li class="sky2">b</li>
+                                            <li class="green">y</li>
+                                            <li class="purple2">g</li>
+                                        </ul>
+                                    </div>
+                                    <div class="quickview-plus-minus">
+                                        <div class="cart-plus-minus">
+                                            <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+                                        </div>
+                                        <div class="quickview-btn-cart">
+                                            <a class="btn-style cr-btn" href="#"><span>add to cart</span></a>
+                                        </div>
+                                        <div class="quickview-btn-wishlist">
+                                            <a class="btn-hover cr-btn" href="#"><span><i class="icofont icofont-heart-alt"></i></span></a>
+                                        </div>
+                                    </div>
+                                    <div class="product-categories">
+                                        <h5 class="pd-sub-title">Categories</h5>
+                                        <ul>
+                                            <li>
+                                                <a href="#">fashion ,</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">electronics ,</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">toys ,</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">food ,</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">jewellery </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-share">
+                                        <h5 class="pd-sub-title">Share</h5>
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="icofont icofont-social-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="icofont icofont-social-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="icofont icofont-social-pinterest"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <i class="icofont icofont-social-instagram"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock content %}
+        
