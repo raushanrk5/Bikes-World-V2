@@ -1,15 +1,23 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.hashers import make_password,check_password
 from store.models.products import Product
+from store.models.category import Category
 from django.views import View
 
 
 class Cart(View):
     def get(self,request):
-        ids = list(request.session.get('cart').keys())
-        products = Product.get_products_by_id(ids)
+        cart = request.session.get('cart')
+        cart_products = []
+        if cart:
+            ids = list(request.session.get('cart').keys())
+            cart_products = Product.get_products_by_id(ids)
+
+        else:
+            request.session['cart'] = {}
+        categorys = Category.objects.all()
         #print(products)
-        return render(request, './cart1.html', {'cart_products' : products})
+        return render(request, './cart.html', {'cart_products' : cart_products, 'categorys': categorys})
 
     def post(self, request):
         product = request.POST.get('product')

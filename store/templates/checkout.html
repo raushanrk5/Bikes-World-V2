@@ -9,7 +9,7 @@
                         <h2>checkout page</h2>
                         <ul>
                             <li>
-                                <a href="#">home</a>
+                                <a href="{% url 'home' %}">home</a>
                             </li>
                             <li>checkout page</li>
                         </ul>
@@ -19,53 +19,53 @@
     <!-- checkout-area start -->
     <div class="checkout-area pt-130 pb-100">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="coupon-accordion">
-                                <!-- ACCORDION START -->
-                                <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
-                                <div id="checkout-login" class="coupon-content">
-                                    <div class="coupon-info">
-                                        <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>
-                                        <form action="#">
-                                            <p class="form-row-first">
-                                                <label>Username or email <span class="required">*</span></label>
-                                                <input type="text" />
-                                            </p>
-                                            <p class="form-row-last">
-                                                <label>Password  <span class="required">*</span></label>
-                                                <input type="text" />
-                                            </p>
-                                            <p class="form-row">					
-                                                <input type="submit" value="Login" />
-                                                <label>
-                                                    <input type="checkbox" />
-                                                     Remember me 
-                                                </label>
-                                            </p>
-                                            <p class="lost-password">
-                                                <a href="#">Lost your password?</a>
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- ACCORDION END -->	
-                                <!-- ACCORDION START -->
-                                <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
-                                <div id="checkout_coupon" class="coupon-checkout-content">
-                                    <div class="coupon-info">
-                                        <form action="#">
-                                            <p class="checkout-coupon">
-                                                <input type="text" placeholder="Coupon code" />
-                                                <input type="submit" value="Apply Coupon" />
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- ACCORDION END -->						
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-12">-->
+<!--                            <div class="coupon-accordion">-->
+<!--                                &lt;!&ndash; ACCORDION START &ndash;&gt;-->
+<!--                                <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>-->
+<!--                                <div id="checkout-login" class="coupon-content">-->
+<!--                                    <div class="coupon-info">-->
+<!--                                        <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>-->
+<!--                                        <form action="#">-->
+<!--                                            <p class="form-row-first">-->
+<!--                                                <label>Username or email <span class="required">*</span></label>-->
+<!--                                                <input type="text" />-->
+<!--                                            </p>-->
+<!--                                            <p class="form-row-last">-->
+<!--                                                <label>Password  <span class="required">*</span></label>-->
+<!--                                                <input type="text" />-->
+<!--                                            </p>-->
+<!--                                            <p class="form-row">					-->
+<!--                                                <input type="submit" value="Login" />-->
+<!--                                                <label>-->
+<!--                                                    <input type="checkbox" />-->
+<!--                                                     Remember me -->
+<!--                                                </label>-->
+<!--                                            </p>-->
+<!--                                            <p class="lost-password">-->
+<!--                                                <a href="#">Lost your password?</a>-->
+<!--                                            </p>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; ACCORDION END &ndash;&gt;	-->
+<!--                                &lt;!&ndash; ACCORDION START &ndash;&gt;-->
+<!--                                <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>-->
+<!--                                <div id="checkout_coupon" class="coupon-checkout-content">-->
+<!--                                    <div class="coupon-info">-->
+<!--                                        <form action="#">-->
+<!--                                            <p class="checkout-coupon">-->
+<!--                                                <input type="text" placeholder="Coupon code" />-->
+<!--                                                <input type="submit" value="Apply Coupon" />-->
+<!--                                            </p>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; ACCORDION END &ndash;&gt;						-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <form action="#" method="post">
                         {% csrf_token %}
                         <div class="row">
@@ -76,61 +76,61 @@
                                         <div class="col-md-12">
                                             <div class="checkout-form-list">
                                                 <label>Country <span class="required">*</span></label>
-                                                <input type="text" placeholder="" name="country"/>
+                                                <input type="text" placeholder="" name="country" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>First Name <span class="required">*</span></label>
-                                                <input type="text" placeholder="" name="fname"/>
+                                                <input type="text" placeholder="" name="fname" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Last Name <span class="required">*</span></label>
-                                                <input type="text" placeholder="" name="lname"/>
+                                                <input type="text" placeholder="" name="lname" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="checkout-form-list">
                                                 <label>Company Name</label>
-                                                <input type="text" placeholder="" name="company_name"/>
+                                                <input type="text" placeholder="" name="company_name required" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="checkout-form-list">
                                                 <label>Address <span class="required">*</span></label>
-                                                <input type="text" placeholder="Street address" name="address"/>
+                                                <input type="text" placeholder="Street address" name="address" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="checkout-form-list">
                                                 <label>Town / City <span class="required">*</span></label>
-                                                <input type="text" name="city"/>
+                                                <input type="text" name="city" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>State<span class="required">*</span></label>
-                                                <input type="text" placeholder="" name="state"/>
+                                                <input type="text" placeholder="" name="state" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Postcode / Zip <span class="required">*</span></label>
-                                                <input type="text" name="zip_code"/>
+                                                <input type="text" name="zip_code" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Email Address <span class="required">*</span></label>
-                                                <input type="email" name="email"/>
+                                                <input type="email" name="email" required/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Phone  <span class="required">*</span></label>
-                                                <input type="text" name="phone"/>
+                                                <input type="text" name="phone" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -175,26 +175,26 @@
                                 </div>
                                 <div class="payment-method mt-40">
                                     <div class="payment-accordion">
-                                        <div class="panel-group" id="faq">
+<!--                                        <div class="panel-group" id="faq">-->
 
-                                            <h4 class="mb-3">Payment</h4>
+<!--                                            <h4 class="mb-3">Payment</h4>-->
 
-                                            <div class="d-block my-3 panel panel-default">
-                                              <div class="form-check">
-                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio1" value="Razorpay">
-                                              <label class="form-check-label" for="inlineRadio1">Razorpay</label>
-                                            </div>
-                                            <div class="form-check">
-                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio2" value="Paypal">
-                                              <label class="form-check-label" for="inlineRadio2">Paypal</label>
-                                            </div>
-                                            <div class="form-check">
-                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio3" value="Credit/debit">
-                                              <label class="form-check-label" for="inlineRadio3">Debit/Credit Card</label>
-                                            </div>
-                                            </div>
+<!--                                            <div class="d-block my-3 panel panel-default">-->
+<!--                                              <div class="form-check">-->
+<!--                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio1" value="Razorpay">-->
+<!--                                              <label class="form-check-label" for="inlineRadio1">Razorpay</label>-->
+<!--                                            </div>-->
+<!--                                            <div class="form-check">-->
+<!--                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio2" value="Paypal">-->
+<!--                                              <label class="form-check-label" for="inlineRadio2">Paypal</label>-->
+<!--                                            </div>-->
+<!--                                            <div class="form-check">-->
+<!--                                              <input style="height:22px;" class="form-check-input" type="radio" name="payment_options" id="inlineRadio3" value="Credit/debit">-->
+<!--                                              <label class="form-check-label" for="inlineRadio3">Debit/Credit Card</label>-->
+<!--                                            </div>-->
+<!--                                            </div>-->
 
-                                        </div>
+<!--                                        </div>-->
                                         <div class="order-button-payment">
                                             <input type="submit" value="Place order" />
                                         </div>

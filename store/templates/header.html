@@ -154,9 +154,15 @@
                                             <span>Price: {{ p.price|convert}}</span>
                                             <span>Qty: {{p|cart_quantity:request.session.cart }}</span>
                                         </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href=""><i class="icofont icofont-ui-delete"></i></a>
-                                        </div>
+<!--                                        <div class="shopping-cart-delete">-->
+<!--                                         <a href=""><i class="icofont icofont-ui-delete"></i></a>-->
+<!--                                            <form action="" method="POST">-->
+<!--                                                    {% csrf_token %}-->
+<!--                                                  <input hidden name = "product" type="text" value="{{product.id}}">-->
+<!--                                                  <input hidden name = "remove_from_cart" type="text" value="True">-->
+<!--                                                  <button type="submit" class="btn btn-outline-danger rounded"><i class="ti-trash"></i></button>-->
+<!--                                            </form>-->
+<!--                                        </div>-->
                                     </li>
                                     {% endfor %}
                                 </ul>

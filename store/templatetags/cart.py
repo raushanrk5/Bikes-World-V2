@@ -1,6 +1,7 @@
 from django import template
 from store.models.category import Category
 register = template.Library()
+from store.models.orders import OrderProduct
 
 @register.filter(name='is_in_cart')
 def is_in_cart(product, cart):
@@ -41,14 +42,12 @@ def multiply(number,number1):
 
 @register.filter(name='convert')
 def convert(rupee):
-    price = rupee/10000
+    price = rupee/100000
     return '₹'+str(price)+ ' L'
 
 @register.filter(name='gallery')
 def gallery(product):
     gall = product.gallery.all().reverse()
     return gall[0:2]
-
-
 
 

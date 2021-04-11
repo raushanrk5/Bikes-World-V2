@@ -63,7 +63,7 @@
                                 <div class="overview-content">
                                     <h1><span>BIKES WORLD</span></h1>
                                     <h2>LARGEST <span>MOTORCYCLE STORE</span></h2>
-                                    <p><span>BIKES WORLD</span> the largest bike store in the wold can serve you latest quality of motorcycle. You get different types of bikes here such as Sports, Street, Racing bikes etc. It is mainly built for b2b purpose. Temporibus autem quibusdam </p>
+                                    <p><span>BIKES WORLD</span> the largest bike store in the wold can serve you latest quality of motorcycle. You get different types of bikes here such as Sports, Street, Racing bikes etc. It is mainly built for b2b purpose.</p>
                                     <div class="question-area">
                                         <h4>HAVE ANY QUESTION? </h4>
                                         <div class="question-contact">
@@ -90,7 +90,7 @@
                         <div class="row">
                             <div class="col-md-4 col-lg-4">
                                 <div class="banner-wrapper mb-30">
-                                    <a href="?category=1"><img src="{% static 'img/banner/b3.jpg' %}" alt="image"></a>
+                                    <a href="{% url 'shop' %}?category=4"><img src="{% static 'img/banner/b3.jpg' %}" alt="image"></a>
                                     <div class="banner-content">
                                         <h2>GET KAWASAKI BIKES</h2>
                                     </div>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-md-4 col-lg-4">
                                 <div class="banner-wrapper mb-30">
-                                    <a href="#"><img src="{% static 'img/banner/b2.jpg' %}" alt="image"></a>
+                                    <a href="{% url 'shop' %}?category=3"><img src="{% static 'img/banner/b2.jpg' %}" alt="image"></a>
                                     <div class="banner-content">
                                         <h2>GET HARLEY BIKES</h2>
                                     </div>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-md-4 col-lg-4">
                                 <div class="banner-wrapper mb-30">
-                                    <a href="#"><img src="{% static 'img/banner/b4.png' %}" alt="image"></a>
+                                    <a href="{% url 'shop' %}?category=5"><img src="{% static 'img/banner/b4.png' %}" alt="image"></a>
                                     <div class="banner-content">
                                         <h2>GET DUCATI BIKES</h2>
                                     </div>
@@ -119,7 +119,7 @@
                     <div class="container">
                         <div class="section-title text-center mb-50">
                             <h2>CHOOSE YOUR BIKE</h2>
-                            <p><span>OSWAN</span> the most latgest bike store in the wold can serve you latest            qulity of motorcycle also you can sell here your motorcycle</p>
+                            <p><span>Bikes World, </span>the largest bike store in the wold, can serve you latest quality of motorcycle. You get different types of bikes here such as Sports, Road, Racing bikes etc.</p>
                         </div>
                         <div class="product-tab-list text-center mb-80 nav product-menu-mrg" role="tablist">
                             <a class="active" href="#home1" data-toggle="tab" >
@@ -176,7 +176,7 @@
                                         </div>
                                         <div class="product-wrapper mb-30" style="height:350px">
                                             <div class="product-img">
-                                                <a href="product-details.html">
+                                                <a href="/bike/{{ p2.name }}">
                                                     <img style="height:200px" src="{{ p2.image.url }}" alt="">
                                                 </a>
 
@@ -222,7 +222,7 @@
                                     <div class="product-wrapper-bundle">
                                         <div class="product-wrapper mb-30" style="height:350px">
                                             <div class="product-img">
-                                                <a href="product-details.html">
+                                                <a href="/bike/{{ p1.name }}">
                                                     <img style="height:200px" src="{{ p1.image.url }}" alt="">
                                                 </a>
 
@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="product-wrapper mb-30" id = "{{ p2.id }}" style="height:350px">
                                             <div class="product-img">
-                                                <a href="product-details.html">
+                                                <a href="/bike/{{ p1.name }}">
                                                     <img  style="height:200px" src="{{ p2.image.url }}" alt="">
                                                 </a>
 
@@ -317,9 +317,9 @@
                                     <div class="col-lg-5 col-md-12 col-12">
                                         <div class="latest-product-content">
                                             <h2 class="animated text-dark">LATEST OFFER <br>FOR POPULAR BIKES</h2>
-                                            <p class="animated text-dark"><span>OSWAN</span> the most latgest bike store in the wold can serve you latest            qulity of motorcycle also you can sell here your motorcycle it quo minus iduod maxie placeat facere possimus, omnis voluptas assumenda est, omnis dolor llendus. Temporibus autem quibusdam </p>
+                                            <p class="animated text-dark"><span>BIKES WORLD</span>the largest bike store in the wold, can serve you latest quality of motorcycle. You get different types of bikes here such as Sports, Street, Racing bikes etc. It is mainly built for b2b purpose. we serve you latest quality of motorcycle.</p>
                                             <div class="latest-price">
-                                                <h3 class="animated text-dark">NOW AT <span>$1250</span></h3>
+                                                <h3 class="animated text-dark">NOW AT <span> ₹10.00 L</span></h3>
                                                 <span class="animated text-dark">35% DISCOUNT</span>
                                             </div>
                                             <div class="latext-btn">
@@ -338,14 +338,14 @@
                                     </div>
                                     <div class="col-lg-5 col-col-12 col-12">
                                         <div class="latest-product-content">
-                                            <h2 class="animated">LATEST OFFER <br>FOR POPULAR BIKES</h2>
-                                            <p class="animated"><span>OSWAN</span> the most latgest bike store in the wold can serve you latest            qulity of motorcycle also you can sell here your motorcycle it quo minus iduod maxie placeat facere possimus, omnis voluptas assumenda est, omnis dolor llendus. Temporibus autem quibusdam </p>
+                                            <h2 class="animated text-dark">LATEST OFFER <br>FOR POPULAR BIKES</h2>
+                                            <p class="animated text-dark"><span>BIKES WORLD</span>the largest bike store in the wold, can serve you latest quality of motorcycle. You get different types of bikes here such as Sports, Street, Racing bikes etc. It is mainly built for b2b purpose. we serve you latest quality of motorcycle.</p>
                                             <div class="latest-price">
-                                                <h3 class="animated">NOW AT <span>$1250</span></h3>
-                                                <span class="animated">35% DISCOUNT</span>
+                                                <h3 class="animated text-dark">NOW AT <span> ₹4.00 L</span></h3>
+                                                <span class="animated text-dark">35% DISCOUNT</span>
                                             </div>
                                             <div class="latext-btn">
-                                                <a class="animated" href="#">SELECT A BIKE</a>
+                                                <a class="animated" href="{% url 'shop'%}">SELECT A BIKE</a>
                                             </div>
                                         </div>
                                     </div>
@@ -365,7 +365,7 @@
                             <div class="modal-body">
                                 <div class="qwick-view-left">
                                     <div class="quick-view-learg-img">
-                                        <div class="quick-view-tab-content tab-content">
+                                        <div class="product-details-large tab-content">
                                             <div class="tab-pane active show fade" id="modal0" role="tabpanel">
                                                 <img style="height:380px; width:320px; object-fit:contain;" src="{{ p.image.url }}" alt="">
                                             </div>
@@ -376,7 +376,7 @@
                                             {% endfor %}
                                         </div>
                                     </div>
-                                    <div class="quick-view-list nav" role="tablist">
+                                    <div class="product-details-small nav" role="tablist">
                                         <a class="active" href="#modal0" data-toggle="tab" role="tab">
                                             <img style="height:110px; width:100px; object-fit:contain;" src="{{ p.image.url }}" alt="">
                                         </a>
@@ -405,36 +405,44 @@
                                             </div>
                                         </div>
                                         <p>{{ p.desc }}</p>
-                                        <div class="quick-view-select">
-                                            <div class="select-option-part">
-                                                <label>Size*</label>
-                                                <select class="select">
-                                                    <option value="">- Please Select -</option>
-                                                    <option value="">900</option>
-                                                    <option value="">700</option>
-                                                </select>
-                                            </div>
-                                            <div class="select-option-part">
-                                                <label>Color*</label>
-                                                <select class="select">
-                                                    <option value="">- Please Select -</option>
-                                                    <option value="">orange</option>
-                                                    <option value="">pink</option>
-                                                    <option value="">yellow</option>
-                                                </select>
-                                            </div>
+                                        <div class="product-color">
+                                            <h5 class="pd-sub-title">Product color</h5>
+                                            <ul>
+                                                <li class="red">b</li>
+                                                <li class="pink">p</li>
+                                                <li class="blue">b</li>
+                                                <li class="sky2">b</li>
+                                                <li class="green">y</li>
+                                                <li class="purple2">g</li>
+                                            </ul>
                                         </div>
-                                        <div class="quickview-plus-minus">
-                                            <div class="cart-plus-minus">
-                                                <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                            </div>
-                                            <div class="quickview-btn-cart">
-                                                <a class="btn-style" href="#">add to cart</a>
-                                            </div>
-                                            <div class="quickview-btn-wishlist">
-                                                <a class="btn-hover" href="#"><i class="icofont icofont-heart-alt"></i></a>
-                                            </div>
-                                        </div>
+                                        <div class="product-categories">
+                                        <h5 class="pd-sub-title">Categories</h5>
+                                        <ul>
+                                            {% for category in categorys %}
+                                                <li>
+                                                    <a href="{% url 'shop' %}?category={{ category.id }}">{{ category }},</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                        <div class="product-share">
+                                        <h5 class="pd-sub-title">Share</h5>
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="icofont icofont-social-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="icofont icofont-social-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="icofont icofont-social-pinterest"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <i class="icofont icofont-social-instagram"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

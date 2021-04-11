@@ -1,44 +1,84 @@
-{% extends 'base.html' %}
+{% extends 'layout.html' %}
+{% load static %}
+{% load cart %}
 
 {% block content %}
-{% load cart %}
-<div class="container">
-    <div class="border rounded p-4 m-4">
-        <p class="display-4 ml-4 pl-4"><b>Your Orders</b></p>
-        <hr>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Sno.</th>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Date</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in orders %}
-                <tr>
-                    <td>{{forloop.counter}}</td>
-                    <td><img style="height: 80px;" class = "rounded-circle" src="{{order.product.image.url}}" alt=""></td>
-                    <td>{{order.product.name}}</td>
-                    <td>{{order.date}}</td>
-                    <td>{{order.price|currency}}</td>
-                    <td>{{order.quantity}}</td>
-                    <td>{{order.quantity|multiply:order.price|currency}}</td>
-                    
-                    {% if order.completed %}
-                    <td><span class="badge badge-success">Completed</small></td>
-                    {% else %}
-                    <td><span class="badge badge-warning">Pending</small></td>
-                    {% endif %}
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
-{% endblock %}
+    <div class="breadcrumb-area pt-255 pb-170" style="background-image: url({% static 'img/banner/bg5.jpg' %})">
+                <div class="container-fluid">
+                    <div class="breadcrumb-content text-center">
+                        <h2>order page</h2>
+                        <ul>
+                            <li>
+                                <a href="{% url 'home' %}">home</a>
+                            </li>
+                            <li>Order</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    <div class="product-cart-area pt-120 pb-130">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="table-content table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+<!--                                            <th class="product-name">Sno.</th>-->
+                                            <th class="product-name">products</th>
+                                            <th class="product-price">products name</th>
+                                            <th class="product-price">date</th>
+                                            <th class="product-name">price</th>
+                                            <th class="product-price">quantity</th>
+                                            <th class="product-quantity">total</th>
+                                            <th class="product-quantity">status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for order in orders %}
+                                        {% for p in order.order_products.all %}
+                                            <tr>
+<!--                                            <td class="">-->
+<!--                                                <u>{{forloop.counter}}</u>-->
+<!--                                            </td>-->
+                                            <td class="product-thumbnail">
+                                                <a href="#"><img style="height: 80px;" class = "rounded-circle" src="{{p.bike.image.url}}" alt=""></a>
+                                            </td>
+                                            <td class="product-name">
+                                                <a href="/bike/{{ p.bike.name }}">{{p.bike.name}}</a>
+                                            </td>
+                                            <td>{{ p.order.created_at }}</td>
+                                            <td>{{ p.bike.price|convert }}</td>
+                                            <td>{{ p.quantity }}</td>
+                                            <td>{{p.price|multiply:p.quantity|convert}}</td>
+                                            <td><span class="badge badge-warning ">{{ p.order.status }}</small></td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="cart-shiping-update">
+                                <div class="cart-shipping">
+                                    <a class="btn-style cr-btn" href="{% url 'home'%}">
+                                        <span>Back to Home</span>
+                                    </a>
+                                </div>
+                                <div class="update-checkout-cart">
+                                    <div class="update-cart">
+                                        <a class="btn-style cr-btn" href="{% url 'shop'%}">
+                                            <span>continue shopping</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock content %}

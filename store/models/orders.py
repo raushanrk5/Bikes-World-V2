@@ -4,12 +4,17 @@ from .customer import Customer
 import datetime
 
 class Order(models.Model):
+    New = "New"
+    Accepted = "Accepted"
+    Preparing = "Preparing"
+    OnShipping = "OnShipping"
+    Completed = "Completed"
     STATUS_CHOICES = (
-        ('New', 'New'),
-        ('Accepted', 'Accepted'),
-        ('Preparing', 'Preparing'),
-        ('OnShipping', 'OnShipping'),
-        ('Completed', 'Completed'),
+        (New, 'New'),
+        (Accepted, 'Accepted'),
+        (Preparing, 'Preparing'),
+        (OnShipping, 'OnShipping'),
+        (Completed, 'Completed'),
         # ('Canceled', 'Canceled'),
     )
 
@@ -28,29 +33,30 @@ class Order(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='New')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    invoice_id = models.CharField(max_length=200, default=True)
+    payer_id = models.CharField(max_length=200, default=True)
 
-    # @staticmethod
-    # def get_customer_orders(customer_id):
-    #     return Order.objects.filter(customer = customer_id).order_by('-date')
+
+    @staticmethod
+    def get_customer_orders(customer_id):
+        return Order.objects.filter(customer = customer_id).exclude(status= Order.New).order_by('-created_at')
 
     def __str__(self):
         return self.customer.fname + " " + self.customer.lname
 
 
 class OrderProduct(models.Model):
-    STATUS = (
-        ('New', 'New'),
-        ('Accepted', 'Accepted'),
-        ('Canceled', 'Canceled'),
-    )
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_products')
     bike = models.ForeignKey(Product, on_delete=models.CASCADE)
     customer=models.ForeignKey(Customer,on_delete=models.CASCADE)
     quantity=models.IntegerField(default=1)
     price=models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=10, choices=STATUS, default='New')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.bike.name
+
+    @staticmethod
+    def get_customer_orders(customer_id):
+        return OrderProduct.objects.filter(customer=customer_id).order_by('-created_at')

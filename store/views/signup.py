@@ -1,13 +1,16 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.hashers import make_password
 from store.models.customer import Customer
+from store.models.products import Product
 from django.views import View
 
 # Create your views here.
 
 class signup(View):
     def get(self,request):
-        return render(request, './signup.html')
+        ids = list(request.session.get('cart').keys())
+        products = Product.get_products_by_id(ids)
+        return render(request, './signup.html', {'cart_products': products})
 
     def post(self,request):
         firstName = request.POST.get('Fname')

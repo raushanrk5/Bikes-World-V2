@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'layout.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container my-5 py-5">
     <div class="p-4 m-4">
       <div class="col-lg-5 col-sm-12 mx-auto border rounded bg-light">
           <h2 class="text-center mt-2">Register</h2>
@@ -43,7 +43,7 @@
                 </button>
             </div>
             <div class="my-3 text-center">
-                Already have an account? <a href="index.html">Login</a>
+                Already have an account? <a href="{% url 'login' %}"><span class=" badge badge-info">Login</span></a>
             </div>
             </form>
       </div>

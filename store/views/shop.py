@@ -31,11 +31,13 @@ class Index(View):
 
     def get(self, request, slug=None):
         cart = request.session.get('cart')
-        if not cart:
-            request.session['cart'] = {}
+        cart_products = []
+        if cart:
+            ids = list(request.session.get('cart').keys())
+            cart_products = Product.get_products_by_id(ids)
 
-        ids = list(request.session.get('cart').keys())
-        cart_products = Product.get_products_by_id(ids)
+        else:
+            request.session['cart'] = {}
         products = None
         #request.session.get('cart').clear()
         categorys = Category.get_categorys()

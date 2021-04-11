@@ -1,14 +1,18 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
 from django.contrib.auth.hashers import make_password,check_password
 from store.models.customer import Customer
+from store.models.products import Product
 from django.views import View
 
 
 class Login(View):
     return_url=''
+
     def get(self,request):
         Login.return_url=request.GET.get('return_url')
-        return render(request, './login.html')
+        ids = list(request.session.get('cart').keys())
+        products = Product.get_products_by_id(ids)
+        return render(request, './login.html', {'cart_products': products})
 
     def post(self,request):
         email = request.POST.get('email')

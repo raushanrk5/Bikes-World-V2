@@ -10,11 +10,14 @@ class Home(View):
 
     def get(self,request):
         cart = request.session.get('cart')
-        if not cart:
-            request.session['cart'] = {}
+        print(cart)
+        cart_products = []
+        if cart:
+            ids = list(request.session.get('cart').keys())
+            cart_products = Product.get_products_by_id(ids)
 
-        ids = list(request.session.get('cart').keys())
-        cart_products = Product.get_products_by_id(ids)
+        else:
+            request.session['cart'] = {}
         products = None
         # request.session.get('cart').clear()
         categorys = Category.get_categorys()
@@ -42,11 +45,7 @@ class Home(View):
         prod1 = products[:mid]
         prod2 = products[mid:]
         zipped = zip(prod1,prod2)
-        #print(prod1,prod2,zipped)
-        prod = Product.objects.get(id=7)
-        gallery = Product.get_gallery(7)
-        for g in gallery:
-            print(g.img_url)
+
 
         return render(request,"./index.html", {'products': products, 'categorys': categorys, 'cart_products': cart_products, 'latest_products': latest_products, 's_zipped':s_zipped, 'r_zipped':r_zipped})
 

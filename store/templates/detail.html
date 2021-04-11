@@ -3,13 +3,14 @@
 {% load cart %}
 
 {% block content %}
+
     <div class="breadcrumb-area pt-255 pb-170" style="background-image: url({% static 'img/banner/bg5.jpg' %})">
                     <div class="container-fluid">
                         <div class="breadcrumb-content text-center">
                             <h2>product details </h2>
                             <ul>
                                 <li>
-                                    <a href="#">home</a>
+                                    <a href="{% url 'home' %}">home</a>
                                 </li>
                                 <li>product details </li>
                             </ul>
@@ -87,35 +88,50 @@
                                             <li class="purple2">g</li>
                                         </ul>
                                     </div>
-                                    <div class="quickview-plus-minus">
-                                        <div class="cart-plus-minus">
-                                            <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                        </div>
-                                        <div class="quickview-btn-cart">
-                                            <a class="btn-style cr-btn" href="#"><span>add to cart</span></a>
-                                        </div>
-                                        <div class="quickview-btn-wishlist">
-                                            <a class="btn-hover cr-btn" href="#"><span><i class="icofont icofont-heart-alt"></i></span></a>
-                                        </div>
-                                    </div>
+<!--                                    <div class="quickview-plus-minus">-->
+<!--                                        <div class="cart-plus-minus">-->
+<!--                                            <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">-->
+<!--                                        </div>-->
+<!--                                        <div class="quickview-btn-cart">-->
+<!--                                            <a class="btn-style cr-btn" href="#"><span>add to cart</span></a>-->
+<!--                                        </div>-->
+<!--                                        <div class="quickview-btn-wishlist">-->
+<!--                                            <a class="btn-hover cr-btn" href="#"><span><i class="icofont icofont-heart-alt"></i></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    {% if product|is_in_cart:request.session.cart %}
+                                      <div style="height:40px" class="row no-gutters w-50">
+                                        <form action="/bike/{{ product.name }}" method="POST" class="col-2">
+                                          {% csrf_token %}
+                                          <input hidden name = "product" type="text" value="{{product.id}}">
+                                          <input hidden name = "remove" type="text" value="True">
+                                          <input style="height:100%" type="submit" value="-" class="btn btn-block btn-warning">
+                                        </form>
+                                          <div style="height:100%; line-height:40px; font-size:18px; font-weight:bold; border:1px solid #f1941e " class="text-center col w-25 border-warning">{{product|cart_quantity:request.session.cart}} in cart</div>
+                                        <form action="/bike/{{ product.name }}" method="POST" class="col-2">
+                                          {% csrf_token %}
+                                          <input hidden name = "product" type="text" value="{{product.id}}">
+                                          <input style="height:100%" type="submit" value="+" class="btn btn-block btn-warning">
+                                        </form>
+                                      </div>
+                                    {% else %}
+                                      <form  style="height:40px" action="/bike/{{ product.name }}" method="POST" class="btn-md w-50">
+                                        {% csrf_token %}
+                                        <input hidden name = "product" type="text" value="{{product.id}}">
+                                        <input style="height:100%; font-size:18px;" type="submit" value="Add to Cart" class="btn form-control btn-warning float-right border btn-sm rounded">
+                                      </form>
+
+                                    {% endif %}
+
                                     <div class="product-categories">
                                         <h5 class="pd-sub-title">Categories</h5>
                                         <ul>
-                                            <li>
-                                                <a href="#">fashion ,</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">electronics ,</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">toys ,</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">food ,</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">jewellery </a>
-                                            </li>
+                                            {% for category in categorys %}
+                                                <li>
+                                                    <a href="{% url 'shop' %}?category={{ category.id }}">{{ category }},</a>
+                                                </li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                     <div class="product-share">

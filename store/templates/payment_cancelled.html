@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load cart %}
+
+{% block extrahead %}
+    <style type="text/css">
+
+        .payment
+        {
+            border:1px solid #f2f2f2;
+
+            border-radius:20px;
+            background:#f5f5f5;
+        }
+       .payment_header
+       {
+           background:#28a745;
+           padding:20px;
+           border-radius:20px 20px 0px 0px;
+
+       }
+
+       .check
+       {
+           margin:0px auto;
+           width:50px;
+           height:50px;
+           border-radius:100%;
+           background:#fff;
+           text-align:center;
+       }
+
+       .check i
+       {
+           vertical-align:middle;
+           line-height:50px;
+           font-size:30px;
+       }
+
+       .content{
+        text-align: centr
+       }
+
+        .content  h1
+        {
+            font-size:30px;
+            padding-top:25px;
+        }
+
+    </style>
+{% endblock extrahead %}
+
+{% block content %}
+    <div class="container my-5 py-5">
+   <div class="row">
+      <div class="col-md-8 mx-auto mt-5">
+         <div class="payment">
+            <div class="payment_header bg-danger">
+               <div class="check"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+            <div class="content p-3">
+               <h1 class="text-danger">Payment Failed !</h1>
+               <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. </p>
+            </div>
+            <div class="row px-3 mb-4">
+                <div class="col-md-6">
+                    <a href="{% url 'home' %}" type="button" class="btn btn-info btn-lg btn-block rounded px-2">
+                        Continue Shopping
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{% url 'checkout' %}" type="button" class="btn btn-warning btn-lg btn-block rounded">
+                        Back to Checkout
+                    </a>
+                </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
+<body>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load cart %}
+
+{% block extrahead %}
+    <style type="text/css">
+
+        .payment
+        {
+            border:1px solid #f1941e;
+            border-radius:20px;
+            background:;
+        }
+       .payment_header
+       {
+           background:#f1941e;
+           padding:20px;
+           border-radius:20px 20px 0px 0px;
+
+       }
+
+       .check
+       {
+           margin:0px auto;
+           width:50px;
+           height:50px;
+           border-radius:100%;
+           background:#fff;
+           text-align:center;
+       }
+
+       .check i
+       {
+           vertical-align:middle;
+           line-height:50px;
+           font-size:30px;
+       }
+
+       .content{
+        text-align: center
+       }
+
+        .content  h1
+        {
+            font-size:30px;
+            padding-top:25px;
+        }
+
+    </style>
+{% endblock extrahead %}
+
+{% block content %}
+    <div class="container my-5 py-5">
+
+        {% if messages %}
+    <div class="row">
+        <div class="col-md-12">
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-6 mx-auto mt-5">
+         <div class="payment">
+            <div class="payment_header">
+               <div class="text-center"><h4>Pay with PayPal</h4></div>
+            </div>
+            <div class="content p-3 text-center">
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" class="m-3">
+                    <input type="hidden" name="cmd" value="_xclick" id="id_cmd">
+                    <input type="hidden" name="charset" value="utf-8" id="id_charset">
+                    <input type="hidden" name="currency_code" value="{{ form.currency_code.value }}" id="id_currency_code">
+                    <input type="hidden" name="no_shipping" value="1" id="id_no_shipping">
+                    <input type="hidden" name="business" value="{{ form.business.value }}" id="id_business">
+                    <input type="hidden" name="amount" value="{{ form.amount.value }}" id="id_amount">
+                    <input type="hidden" name="item_name" value="{{ form.item_name.value }}" id="id_item_name">
+                    <input type="hidden" name="invoice" value="{{ form.invoice.value }}" id="id_invoice">
+                    <input type="hidden" name="notify_url" value="{{ form.notify_url.value }}" id="id_notify_url">
+                    <input type="hidden" name="cancel_return" value="{{ form.cancel_return.value }}" id="id_cancel_return">
+                    <input type="hidden" name="return" value="{{ form.return.value }}" id="id_return">
+                    <input type="image" class="w-50" style="height:130px; background: #fff; border:none;" src="{% static 'img/logo/paypal_btn.jpeg' %}" name="submit" alt="Buy it Now">
+                </form>
+                <p><b>Use "customer@rk5.com" for username and "customer123" for password and then "123" as CVV.</b></p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
+<body>
+
+</body>
+</html>

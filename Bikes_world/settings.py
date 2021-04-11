@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -130,5 +131,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = "image/download/"
 MEDIA_ROOT = BASE_DIR
 
-STRIPE_PUBLIC_KEY = 'pk_test_51IbO9lSEJ8lqYebubsQobp9e7JqOzQWaVZtPLebpf89AYhH99lYAPco0lNlH7zqKRFGPhYPbzzyqCczyTaseIeSi00DRnmbmk2'
-STRIPE_SECRET_KEY = 'sk_test_51IbO9lSEJ8lqYebuBJyzQlnUFe2cKwRyM2Po0BO1mQEKZswXbXqUDJiyfssUCry2i8n9Hi9nnc0FyUNC4hvP9FfU001ONXbbKM'
+PAYPAL_RECEIVER_EMAIL = 'raushanrk5.pay_pal@yahoo.com'
+
+PAYPAL_TEST = True
