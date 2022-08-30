@@ -5,6 +5,6 @@ http://bikesworld.pythonanywhere.com/
 
 A B2B purpose bikes e-commerce website built in Django, used 'Oswan' template for frontend. It consists of following functionalities, such as Add to cart, authentication - authorisation, customised admin panel.
 
-#Login Credentials(for quick demo):
+# Login Credentials(for quick demo):
 username: customer@rk5.com
 Password: customer123
