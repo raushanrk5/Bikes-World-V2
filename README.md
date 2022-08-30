@@ -10,5 +10,7 @@ A B2B purpose bikes e-commerce website built in Django, used 'Oswan' template fo
 username: customer@rk5.com
 Password: customer123
 
+## ps: Paypal integration is not worrking now
+
 ### Paymment-cancelled page:
 ![Paymment-cancelled page](https://user-images.githubusercontent.com/60956702/187344061-934aa40c-3e01-43b4-a239-bf41dd595053.png)
